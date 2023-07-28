@@ -1,0 +1,25 @@
+button {
+  margin-left: 50px;
+  margin-bottom: 30px;
+  padding: 20px 50px;
+  color: #fff;
+  font-size: 24px;
+  background-color: #c1c1c1;
+  border: 0;
+  border-radius: 12px;
+  transition: all .3s ease;
+}
+
+button:hover {
+  background-color: #7e7979;
+  transform: scale(1.1)
+}
+.red {
+  background-color: red;
+}
+.blue {
+  background-color: blue;
+}
+.black {
+  background-color: #000;
+}

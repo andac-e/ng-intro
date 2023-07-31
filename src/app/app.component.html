@@ -1,10 +1,7 @@
-<button-component
-  [route]="'/login'"
-  [text]="'Login Sayfasına Git'"
-></button-component>
-<button-component
-  [route]="'/signup'"
-  [text]="'Signup Sayfasına Git'"
-></button-component>
+<div *ngFor="let pokemon of pokemons">
+  {{ pokemon.name }}
+  {{ pokemon.height }}
+  {{ pokemon.weight }}
+</div>
 
 <router-outlet></router-outlet>

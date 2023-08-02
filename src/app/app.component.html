@@ -1,7 +1,21 @@
-<div *ngFor="let pokemon of pokemons">
+<!-- <div *ngFor="let pokemon of pokemons">
   {{ pokemon.name }}
   {{ pokemon.height }}
   {{ pokemon.weight }}
-</div>
+</div> -->
+
+<label for="name">Name: </label>
+<!-- <input id="name" type="text" [formControl]="name"> -->
+<!-- <button type="button" (click)="updateName()">Update Name</button> -->
+
+<form [formGroup]="signupForm">
+  <label for="username">Username:</label>
+  <input id="username" type="text" formControlName="username">
+  <label for="password">Password:</label>
+  <input id="name" type="password" formControlName="password">
+  <span *ngIf="signupForm.value.password">Şifre minimum xXXxx karakter olmalıdır.</span>
+  <button type="button" [disabled]="!signupForm.valid" (click)="signup()">Update Name</button>
+</form>
+
 
 <router-outlet></router-outlet>

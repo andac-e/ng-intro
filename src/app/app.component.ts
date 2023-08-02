@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { PokemonService } from "./services/pokemon.service";
 import { Pokemon } from "./interfaces/pokemon.interface";
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: "app-root",
@@ -12,10 +13,21 @@ export class AppComponent implements OnInit {
   test: string = "test";
   isLoading: boolean = true;
   pokemons: Pokemon[] = [];
+  // name = new FormControl('');
+  signupForm : any;
+  user = {
+    username: 'Davut',
+    password: '123',
+    isLoggedin: false,
+  }
 
   constructor(private pokemonService: PokemonService) {}
 
   ngOnInit(): void {
+    this.signupForm = new FormGroup({
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', [Validators.required, Validators.minLength(5)])
+  })
     this.isServiceSuccess();
     this.pokemonService.getPokemon(1).subscribe((res: any) => {
       this.pokemons.push({
@@ -41,5 +53,9 @@ export class AppComponent implements OnInit {
       this.isLoading = false;
       this.test = "davuthan";
     }, 1500);
+  }
+
+  signup() {
+    console.warn(this.signupForm.password.value === this.user.password)
   }
 }
